@@ -1,0 +1,23 @@
+# dependencies
+facebook/node_modules
+facebook/.pnp
+facebook/.pnp.js
+
+# testing
+facebook/coverage
+
+# production
+facebook/build
+
+# misc
+facebook/.DS_Store
+facebook/.env.local
+facebook/.env.development.local
+facebook/.env.test.local
+facebook/.env.production.local
+
+facebook/npm-debug.log*
+facebook/yarn-debug.log*
+facebook/yarn-error.log*
+
+facebook/.env
