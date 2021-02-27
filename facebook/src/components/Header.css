@@ -56,8 +56,16 @@
   border-bottom: none;
 }
 
+.header__option--active {
+  border-bottom: 4px solid #2e81f4;
+}
+
 .header__option > .MuiSvgIcon-root {
   color: darkgray;
+}
+
+.header__option--active > .MuiSvgIcon-root {
+  color: #2e81f4;
 }
 
 .header__option:hover > .MuiSvgIcon-root {
