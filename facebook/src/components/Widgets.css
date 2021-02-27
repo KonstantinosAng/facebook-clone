@@ -1,0 +1,11 @@
+.widgets__root {
+  display: flex;
+  flex: .33;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+.widgets__root > iframe {
+  width: 100%;
+}
