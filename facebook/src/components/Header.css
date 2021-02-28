@@ -84,3 +84,45 @@
 .header__info > h4 {
   margin-left: .5rem;
 }
+
+.header__expand {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 75px;
+  right: 0;
+  background-color: white;
+  border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 5px;
+  border-bottom: 1px solid gray;
+  padding: 1rem 1.5rem;
+  width: 20rem;
+}
+
+.header__expand__col {
+  display: flex;
+  flex-direction: column;
+}
+
+.header__expand__row {
+  display: flex;
+  margin-bottom: 1rem;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.header__expand__row:hover {
+  background-color: lightgray;
+}
+
+.show__expand {
+  display: block;
+}
+
+.hide__expand {
+  display: none;
+}
+
+.header__expand__info {
+  margin-left: 1rem;
+}

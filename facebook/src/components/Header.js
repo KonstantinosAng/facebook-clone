@@ -10,6 +10,7 @@ import AddIcon from '@material-ui/icons/Add';
 import ForumIcon from '@material-ui/icons/Forum';
 import NotificationsActiveIcon from '@material-ui/icons/NotificationsActive';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import FeedbackIcon from '@material-ui/icons/Feedback';
 import { Avatar, IconButton } from '@material-ui/core';
 import { useStateValue } from '../extras/StateProvider.js';
 
@@ -17,12 +18,11 @@ import { useStateValue } from '../extras/StateProvider.js';
 function Header() {
 
   const [{user}, dispatch] = useStateValue();
-
-  useEffect(() => {
-    document.addEventListener("click", (e)=>{
-      console.log(e.target.className);
-    })
-  }, [])
+  const [showExpand, setShowExpand] = useState(false);
+  
+  function handleExpand() {
+    setShowExpand(!showExpand);
+  }
 
   return (
     <div className="header__root">
@@ -40,19 +40,19 @@ function Header() {
       </div>
       <div className="header__middle">
         <div className="header__option header__option--active">
-          <HomeIcon fontSize="large" />
+          <HomeIcon className="header__option__child" fontSize="large" />
         </div>
         <div className="header__option">
-          <FlagIcon fontSize="large" />
+          <FlagIcon className="header__option__child" fontSize="large" />
         </div>
         <div className="header__option">
-          <SubscriptionsIcon fontSize="large" />
+          <SubscriptionsIcon className="header__option__child" fontSize="large" />
         </div>
         <div className="header__option">
-          <StorefrontIcon fontSize="large" />
+          <StorefrontIcon className="header__option__child" fontSize="large" />
         </div>
         <div className="header__option">
-          <SupervisedUserCircleIcon fontSize="large" />
+          <SupervisedUserCircleIcon className="header__option__child" fontSize="large" />
         </div>
       </div>
       <div className="header__right">
@@ -70,8 +70,24 @@ function Header() {
           <NotificationsActiveIcon />
         </IconButton>
         <IconButton>
-          <ExpandMoreIcon />
+          <ExpandMoreIcon onClick={handleExpand}/>
         </IconButton>
+          <div className={`header__expand ${showExpand?"show__expand":"hide__expand"}`}>
+            <div className="header__expand__profile header__expand__row">
+              <Avatar src={user.photoURL}/>
+              <div className="header__expand__info header__expand__col">
+                <h4>{user.displayName}</h4>
+                <h5> See your profile </h5>
+              </div>
+            </div>
+            <div className="header__expand__profile header__expand__row">
+              <FeedbackIcon />
+              <div className="header__expand__info header__expand__col">
+                <h4>Give feedback</h4>
+                <h5> Help us improve the new Facebook </h5>
+              </div>
+            </div>
+          </div>
       </div>
     </div>
   )
