@@ -6,10 +6,10 @@ import { StateProvider } from './extras/StateProvider.js';
 import reducer, { initialState } from './extras/reducer';
 
 render(
-  // <React.StrictMode>
+  <React.StrictMode>
     <StateProvider initialState={initialState} reducer={reducer}>
       <App />
     </StateProvider>
-  // </React.StrictMode>
+  </React.StrictMode>
   ,document.getElementById('root')
 );
