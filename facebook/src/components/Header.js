@@ -83,7 +83,7 @@ function Header() {
         <IconButton>
           <ExpandMoreIcon onClick={handleExpand}/>
         </IconButton>
-          <div className={`header__expand ${showExpand?"show__expand":"hide__expand"}`}>
+          <div onMouseLeave={handleExpand} className={`header__expand ${showExpand?"show__expand":"hide__expand"}`}>
             <div className="header__expand__profile header__expand__row header__expand__first__row">
               <Avatar className="header__icon__avatar" src={user.photoURL}/>
               <div className="header__expand__info header__expand__col">
