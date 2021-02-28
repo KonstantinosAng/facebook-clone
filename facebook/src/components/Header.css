@@ -79,6 +79,14 @@
 .header__info {
   display: flex;
   align-items: center;
+  cursor: pointer;
+}
+
+.header__info:hover {
+  background-color: #eff2f5;
+  border-radius: .5rem;
+  align-items: center;
+  border-bottom: none;
 }
 
 .header__info > h4 {
