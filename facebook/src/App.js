@@ -1,9 +1,6 @@
 import './App.css';
-import Header from './components/Header.js';
-import Sidebar from './components/Sidebar.js';
-import Feed from './components/Feed.js';
-import Widgets from './components/Widgets.js';
-import Login from './components/Login';
+import Login from './Pages/Login';
+import Home from './Pages/Home';
 import { useStateValue } from './extras/StateProvider.js';
 import { useEffect } from 'react';
 import { auth } from './extras/firebase.js';
@@ -35,12 +32,7 @@ function App() {
     <div className="app">
       {!user ? <Login /> : (
         <>
-          <Header />
-          <div className="app__body">
-            <Sidebar />
-            <Feed />
-            <Widgets />
-          </div>
+          <Home />
         </>
       )}
     </div>

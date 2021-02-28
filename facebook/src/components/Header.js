@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState, useEffect } from 'react'
 import './Header.css';
 import SearchIcon from '@material-ui/icons/Search';
 import HomeIcon from '@material-ui/icons/Home';
@@ -17,6 +17,12 @@ import { useStateValue } from '../extras/StateProvider.js';
 function Header() {
 
   const [{user}, dispatch] = useStateValue();
+
+  useEffect(() => {
+    document.addEventListener("click", (e)=>{
+      console.log(e.target.className);
+    })
+  }, [])
 
   return (
     <div className="header__root">
