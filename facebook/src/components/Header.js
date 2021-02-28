@@ -1,4 +1,4 @@
-import React, {useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import './Header.css';
 import SearchIcon from '@material-ui/icons/Search';
 import HomeIcon from '@material-ui/icons/Home';
@@ -11,8 +11,13 @@ import ForumIcon from '@material-ui/icons/Forum';
 import NotificationsActiveIcon from '@material-ui/icons/NotificationsActive';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import FeedbackIcon from '@material-ui/icons/Feedback';
+import SettingsIcon from '@material-ui/icons/Settings';
+import HelpIcon from '@material-ui/icons/Help';
+import Brightness2Icon from '@material-ui/icons/Brightness2';
+import MeetingRoomIcon from '@material-ui/icons/MeetingRoom';
 import { Avatar, IconButton } from '@material-ui/core';
 import { useStateValue } from '../extras/StateProvider.js';
+import { actionTypes } from '../extras/reducer.js';
 
 
 function Header() {
@@ -22,6 +27,12 @@ function Header() {
   
   function handleExpand() {
     setShowExpand(!showExpand);
+  }
+
+  function handleLogOut() {
+    dispatch({
+      type: actionTypes.UNSET_USER
+    })
   }
 
   return (
@@ -40,19 +51,19 @@ function Header() {
       </div>
       <div className="header__middle">
         <div className="header__option header__option--active">
-          <HomeIcon className="header__option__child" fontSize="large" />
+          <HomeIcon fontSize="large" />
         </div>
         <div className="header__option">
-          <FlagIcon className="header__option__child" fontSize="large" />
+          <FlagIcon fontSize="large" />
         </div>
         <div className="header__option">
-          <SubscriptionsIcon className="header__option__child" fontSize="large" />
+          <SubscriptionsIcon fontSize="large" />
         </div>
         <div className="header__option">
-          <StorefrontIcon className="header__option__child" fontSize="large" />
+          <StorefrontIcon fontSize="large" />
         </div>
         <div className="header__option">
-          <SupervisedUserCircleIcon className="header__option__child" fontSize="large" />
+          <SupervisedUserCircleIcon fontSize="large" />
         </div>
       </div>
       <div className="header__right">
@@ -73,19 +84,35 @@ function Header() {
           <ExpandMoreIcon onClick={handleExpand}/>
         </IconButton>
           <div className={`header__expand ${showExpand?"show__expand":"hide__expand"}`}>
-            <div className="header__expand__profile header__expand__row">
-              <Avatar src={user.photoURL}/>
+            <div className="header__expand__profile header__expand__row header__expand__first__row">
+              <Avatar className="header__icon__avatar" src={user.photoURL}/>
               <div className="header__expand__info header__expand__col">
                 <h4>{user.displayName}</h4>
                 <h5> See your profile </h5>
-              </div>
+              </div> 
             </div>
-            <div className="header__expand__profile header__expand__row">
-              <FeedbackIcon />
+            <div className="header__expand__profile header__expand__row header__expand__first__row">
+              <FeedbackIcon className="header__icon"/>
               <div className="header__expand__info header__expand__col">
                 <h4>Give feedback</h4>
                 <h5> Help us improve the new Facebook </h5>
-              </div>
+              </div>  
+            </div>
+            <div className="header__expand__profile header__expand__row">
+              <SettingsIcon className="header__icon"/>
+              <h4>Settings & privacy</h4>
+            </div>
+            <div className="header__expand__profile header__expand__row">
+              <HelpIcon className="header__icon"/>
+              <h4>Help & support</h4>
+            </div>
+            <div className="header__expand__profile header__expand__row">
+              <Brightness2Icon className="header__icon" style={{transform: "rotate(180deg)"}} />
+              <h4>Display & accessibility</h4>
+            </div>
+            <div onClick={handleLogOut} className="header__expand__profile header__expand__row">
+              <MeetingRoomIcon className="header__icon"/>
+              <h4>Log out</h4>
             </div>
           </div>
       </div>
