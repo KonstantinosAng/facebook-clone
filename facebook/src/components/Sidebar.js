@@ -8,12 +8,16 @@ import ChatIcon from '@material-ui/icons/Chat';
 import StorefrontIcon from '@material-ui/icons/Storefront';
 import VideoLibraryIcon from '@material-ui/icons/VideoLibrary';
 import { ExpandMoreOutlined } from '@material-ui/icons';
+import { useStateValue } from '../extras/StateProvider.js';
 
 
 function Sidebar() {
+
+  const [{user}, dispacth] = useStateValue();
+
   return (
     <div className="sidebar__root">
-      <SidebarRow src="https://avatars.githubusercontent.com/u/44067624?s=60&amp;v=4" title="Κωνσταντίνος Αγγελόπουλος" />
+      <SidebarRow src={user.photoURL} title={user.displayName} />
       <SidebarRow Icon={LocalHospitalIcon} title="COVID-19 Information Center" />
       <SidebarRow Icon={EmojiFlagsIcon} title="Pages" />
       <SidebarRow Icon={PeopleIcon} title="Friends" />
