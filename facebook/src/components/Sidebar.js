@@ -12,7 +12,7 @@ import { useStateValue } from '../extras/StateProvider.js';
 
 
 function Sidebar() {
-
+  // eslint-disable-next-line
   const [{user}, dispacth] = useStateValue();
 
   return (

@@ -1,0 +1,11 @@
+.loading__page__root {
+  display: grid;
+  place-items: center;
+  height: 100vh;
+  background-color: rgb(241, 242, 243);
+  animation-delay: 0s;
+}
+
+.loading__page__spinner {
+  animation-delay: 0s;
+}
