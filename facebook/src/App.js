@@ -18,7 +18,6 @@ function App() {
   useEffect(() => {
     const authorization = auth.onAuthStateChanged((Auth) => {
       if (Auth) {
-        console.log(Auth);
         dispatch({
           type: actionTypes.SET_USER,
           user: Auth
