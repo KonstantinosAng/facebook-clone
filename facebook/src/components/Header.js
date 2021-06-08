@@ -18,6 +18,7 @@ import MeetingRoomIcon from '@material-ui/icons/MeetingRoom';
 import { Avatar, IconButton } from '@material-ui/core';
 import { useStateValue } from '../extras/StateProvider.js';
 import { actionTypes } from '../extras/reducer.js';
+import { auth } from '../extras/firebase';
 
 
 function Header() {
@@ -30,6 +31,7 @@ function Header() {
   }
 
   function handleLogOut() {
+	auth.signOut();
     dispatch({
       type: actionTypes.UNSET_USER
     })
