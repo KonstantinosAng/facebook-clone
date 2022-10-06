@@ -3,7 +3,7 @@
 A clone of Facebook Home page using [React JS/React JS Context API](https://reactjs.org) for the front-end and [Firebase](firebase.google.com) for the back-end. Inspired by [this tutorial](https://www.youtube.com/watch?v=B-kxUMHBxNo&t=337s)
 
 <div align="center">
-  <h1><a href="https://constantine.dev:8080/facebook"> DEMO </a></h1>
+  <h1><a href="https://facebook.constantine.dev"> DEMO </a></h1>
 </div>
 
 ## Requirements
